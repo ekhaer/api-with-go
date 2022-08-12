@@ -5,7 +5,6 @@ import (
     "github.com/ekhaer/api-with-go/db"
     "github.com/ekhaer/api-with-go/users"
     "github.com/spf13/viper"
-	"net/http"
 
 )
 
