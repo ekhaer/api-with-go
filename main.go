@@ -12,7 +12,7 @@ func main() {
     viper.SetConfigFile(".env")
     viper.ReadInConfig()
 
-    port := viper.Get("PORT").(string)
+    // port := viper.Get("PORT").(string)
     dbUrl := viper.Get("DBURL").(string)
 
     r := gin.Default()
@@ -27,5 +27,5 @@ func main() {
 
 	users.RegisterRoutes(r, h)
 
-    r.Run(port)
+    r.Run(":8080")
 }
