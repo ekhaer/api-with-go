@@ -18,7 +18,6 @@ func main() {
     r := gin.Default()
     h := db.Init(dbUrl)
 
-
     // r.GET("/", func(c *gin.Context) {
     //     c.JSON(200, gin.H{
     //         "port": port,
