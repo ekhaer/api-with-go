@@ -26,7 +26,7 @@ func main() {
 	password := os.Getenv("PASSWORD")
 
 	//database connection string
-	dbURI := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=require password=%s port=%s", host, username, name, password, dbport)
+	dbURI := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s port=%s", host, username, name, password, dbport)
 
 
     r := gin.Default()
