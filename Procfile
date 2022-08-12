@@ -1,1 +1,1 @@
-web: api-with-go
+web: bin/api-with-go
