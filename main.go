@@ -13,7 +13,7 @@ func main() {
     viper.SetConfigFile(".env")
     viper.ReadInConfig()
 
-    dbUrl := viper.Get("DBURL").(string)
+    dbUrl := viper.Get("DATABASE_URL").(string)
 
     r := gin.Default()
     h := db.Init(dbUrl)
