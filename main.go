@@ -13,13 +13,14 @@ func main() {
     viper.SetConfigFile(".env")
     viper.ReadInConfig()
 
+    // port := viper.Get("PORT").(string)
     dbUrl := viper.Get("DATABASE_URL").(string)
 
     r := gin.Default()
     h := db.Init(dbUrl)
 
 	r.GET("/healthcheck", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world"})    
+		c.JSON(http.StatusOK, gin.H{"DBuRL": dbUrl})    
 	})
 
 	users.RegisterRoutes(r, h)
