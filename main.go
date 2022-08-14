@@ -12,13 +12,6 @@ import (
 )
 
 func main() {
-    // viper.SetConfigFile(".env")
-    // viper.ReadInConfig()
-
-    // port := viper.Get("PORT").(string)
-    // dbUrl := viper.Get("DATABASE_URL").(string)
-
-	// dialect := os.Getenv("DIALECT")
 	host := os.Getenv("HOST")
 	dbport := os.Getenv("DBPORT")
 	username := os.Getenv("USER")
@@ -26,14 +19,13 @@ func main() {
 	password := os.Getenv("PASSWORD")
 
 	//database connection string
-	dbURI := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=require password=%s port=%s", host, username, name, password, dbport)
-
+	dbURI := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s port=%s", host, username, name, password, dbport)
 
     r := gin.Default()
     h := db.Init(dbURI)
 
 	r.GET("/healthcheck", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"DBuRL": dbURI})    
+		c.JSON(http.StatusOK, gin.H{"healthcheck": "halo"})    
 	})
 
 	users.RegisterRoutes(r, h)
